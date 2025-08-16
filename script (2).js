@@ -6,16 +6,18 @@ function atualizarContador(){
   if (tempoRestante > 0) {
     let dias = Math.floor(tempoRestante/(1000*60*60*24))
     
-    let horas = Math.floor(tempoRestante/(1000*60*60)%24)
+    let horas = Math.floor((tempoRestante/(1000*60*60))%24);
     
-    let minutos = Math.floor(tempoRestante/(1000*60)%60)
+    let minutos = Math.floor((tempoRestante/(1000*60))%60);
     
-    let segundos = Math.floor(tempoRestante/(1000))%60)
+    let segundos = Math.floor((tempoRestante/1000)%60);
     
-    document.getElementById("contador").textContent = `${dias}d${horas}h${minutos}m${segundos}`;
+    document.getElementById("contador").textContent = `${dias}d:${horas}h:${minutos}m:${segundos}`;
   }
   else{
     document.getElementById("contador").textContent = "Feliz Aniversário!"
   }
+}
 
 setInterval(atualizarContador, 1000)
+atualizarContador()
